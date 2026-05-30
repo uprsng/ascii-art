@@ -120,6 +120,8 @@ def main():
             current_font = parts[1].strip()
             print(f"{Fore.GREEN}Font set to '{current_font}'{Style.RESET_ALL}")
             render(last_text, current_font, current_color)
+        elif cmd == "font":
+            print(f"{Fore.RED}Usage: font <name>  (e.g. font doom){Style.RESET_ALL}")
         elif cmd == "color" and len(parts) == 2:
             c = parts[1].strip().lower()
             if c in COLORS or c == "rainbow":
@@ -128,6 +130,8 @@ def main():
                 render(last_text, current_font, current_color)
             else:
                 print(f"{Fore.RED}Unknown color. Options: {' '.join(COLORS.keys())} rainbow{Style.RESET_ALL}")
+        elif cmd == "color":
+            print(f"{Fore.RED}Usage: color <name>  (e.g. color cyan){Style.RESET_ALL}")
         elif cmd == "random":
             current_font = random.choice(FEATURED_FONTS)
             current_color = random.choice(list(COLORS.keys()) + ["rainbow"])
